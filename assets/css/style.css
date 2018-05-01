@@ -3,10 +3,11 @@ body{
 	color: #444444;
 }
 .jumbotron{
-	background-color: lightblue;
-	color: darkblue;
+	background-color: rgb(169, 223, 169);
+	color: rgb(4, 49, 4);
 	font-family: 'Abril Fatface', "Times New Roman", serif;
-	margin-bottom: 1%;
+	margin-top: 5%;
+	margin-bottom: 3%;
 	padding-top: .5%;
 	padding-bottom: 2%;
 }
@@ -20,7 +21,7 @@ body{
 }
 h2{
 	font-family: 'Sigmar One', Verdana, Geneva, sans-serif;
-	color: blue;
+	color: green;
 }
 img{
 	border-radius: 6px;
@@ -30,7 +31,7 @@ img{
 	font-size: 24px;
 }
 .left{
-	background-color: lightblue;
+	background-color: rgb(169, 223, 169);
 	border-radius: 6px;
 }
 .right{

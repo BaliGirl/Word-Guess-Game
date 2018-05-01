@@ -1,6 +1,6 @@
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-var breeds = ["affenpinscher", "akita", "basenji", "beagle", "beauceron", "bloodhound", "borzoi", "boxer", "briard", "brittany", "bulldog", "bullmastiff", "chihuahua", "collie", "dachshund", "dalmatian", "greyhound", "havanese", "leonberger", "maltese", "mastiff", "newfoundland", "poodle", "pug", "retriever", "rottweiler", "saluki", "samoyed", "schipperke", "setter", "sloughi", "spaniel", "vizsla", "weimaraner", "whippet", "xoloitzcuintil"];
+var tennis = ["ace", "advantage", "ad-court", "approach shot", "atp", "backspin", "break", "break point", "cross-court", "deep", "deuce", "deuce-court", "double bagel", "double fault", "doubles", "down the line", "error", "foot fault", "forced error", "groundstroke", "hold", "inside-out-forehand", "kick serve", "let", "match point", "mini-break", "moonball", "overhead", "racquet", "singles", "smash", "tiebreak", "underspin", "unforced error", "volley","wild card"];
 
 var gameStarted = false;
 var currentWord;
@@ -10,7 +10,7 @@ var lettersGuessed;
 var numWins = 0;
 var numLosses = 0;
 var getNewWord;
-var wordPlace; //place in breeds array
+var wordPlace; 
 var correctGuesses;
 var wordAsArr = [];
 var dashesArray = [];
@@ -20,17 +20,18 @@ function initialize() {
 	lettersGuessed = [];
 	correctGuesses = 0;
 	wordPlace = Math.floor(Math.random() * 36);
-	currentWord = breeds[wordPlace];			//string
-	guessesLeft = 17 - currentWord.length;		//longer words get less guesses
-	wordAsDashes = makeIntoDashes(currentWord);	//string of dashes
-	wordAsArr = currentWord.split('');			//array with letters
-	dashesArray = wordAsDashes.split('');		//array with dashes
+	currentWord = tennis[wordPlace];
+	//total you can guess deduct when wrong		
+	guessesLeft = 20 - currentWord.length;
+	wordAsDashes = makeIntoDashes(currentWord);
+	wordAsArr = currentWord.split('');
+	dashesArray = wordAsDashes.split('');
 	document.getElementById("currentWord").innerHTML = wordAsDashes;
 	document.getElementById("lettersGuessed").innerHTML = "--";
 	document.getElementById("guessesLeft").innerHTML = guessesLeft;
 }
 
-// Make each word into underscores, visually like hangman
+
 function makeIntoDashes(word) {
 	var dashes = "";
 	for (i = 0; i < word.length - 1; i++) {
@@ -40,11 +41,11 @@ function makeIntoDashes(word) {
 	return dashes;
 }
 
-// Main function that controls what to do with each keystroke
+
 function playGame(letter) {
 	var letter = letter.toLowerCase();
 
-	// Checks if key is a letter
+//key needs to be a letter
 	if (alphabet.indexOf(letter) > -1) {
 		if (wordAsArr.indexOf(letter) > -1) {
 			correctGuesses++;
@@ -58,9 +59,9 @@ function playGame(letter) {
 				guessesLeft--;
 				document.getElementById("guessesLeft").innerHTML = guessesLeft;
 				lettersGuessed.push(letter);
-				document.getElementById("lettersGuessed").innerHTML = lettersGuessed.join(' ');
+				document.getElementById("lettersGuessed").innerHTML = lettersGuessed.join('');
 				if (guessesLeft == 0) {
-					alert("Sorry! The correct answer is " + currentWord);
+					alert("Sorry! The correct tennis term is " + currentWord);
 					initialize();
 					numLosses++;
 					document.getElementById("losses").innerHTML = numLosses;
@@ -70,9 +71,9 @@ function playGame(letter) {
 	}
 }
 
-// Displays letter if it's in word
+
 function displayLetter(letter) {
-	// for each char in wordAsDashes, if matches currentWord --> display
+
 	for (i = 0; i < currentWord.length; i++) {
 		if (letter == wordAsArr[i]) {
 			dashesArray[i * 2] = letter;
@@ -83,7 +84,7 @@ function displayLetter(letter) {
 	checkForWin();
 }
 
-// Checks for win by looking for "_"
+
 function checkForWin() {
 	if (dashesArray.indexOf("_") === -1) {
 		alert("You got it! The correct answer is " + currentWord);

@@ -22,7 +22,7 @@ function initialize() {
 	wordPlace = Math.floor(Math.random() * 36);
 	currentWord = tennis[wordPlace];
 	//total you can guess deduct when wrong		
-	guessesLeft = 20 - currentWord.length;
+	guessesLeft = 25 - currentWord.length;
 	wordAsDashes = makeIntoDashes(currentWord);
 	wordAsArr = currentWord.split('');
 	dashesArray = wordAsDashes.split('');
@@ -93,6 +93,12 @@ function checkForWin() {
 		initialize();
 	}
 }
+
+// document.onkeypress = function(keyPressed) {
+// 	var keyPressed = keyPressed || window.event,
+// 	  charCode = keyPressed.keyCode || keyPressed.which,
+// 	  lettersGuessed = String.fromCharCode(charCode);
+// }
 
 document.onkeyup = function (event) {
 	if (!gameStarted) {

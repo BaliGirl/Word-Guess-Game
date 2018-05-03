@@ -1,5 +1,7 @@
-var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+//alphabet and including space and dash
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "-"];
 
+//create var for tennis terms
 var tennis = ["ace", "advantage", "ad-court", "approach shot", "atp", "backspin", "break", "break point", "cross-court", "deep", "deuce", "deuce-court", "double bagel", "double fault", "doubles", "down the line", "error", "foot fault", "forced error", "groundstroke", "hold", "inside-out-forehand", "kick serve", "let", "match point", "mini-break", "moonball", "overhead", "racquet", "singles", "smash", "tiebreak", "underspin", "unforced error", "volley","wild card"];
 
 var gameStarted = false;
